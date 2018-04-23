@@ -1,0 +1,36 @@
+es:
+  errors:
+    messages:
+      blank: "no puede estar en blanco"
+      taken: "ya se encuentra registrado"
+      invalid: "es invalido"
+      confirmation: "no son los mismos"
+      too_short: "es muy corto"
+
+  activerecord:
+    attributes:
+      user:
+        name: "Nombre"
+        user_name: "User Name"
+        password: "Contraseña"
+
+      post:
+        title: "Titulo"
+        body: "Cuerpo del post"
+
+      comments:
+        body: "Comentario"
+
+  datetime:
+    distance_in_words:
+      about_x_days:
+        one: "hace 1 dia"
+        other: "hace %{count} dias"
+
+      about_x_hours:
+        one: "hace 1 hora"
+        other: "hace %{count} horas"
+
+      x_minutes:
+        one: "hace 1 minuto"
+        other: "hace %{count} minutos"
