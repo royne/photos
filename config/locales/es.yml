@@ -23,7 +23,7 @@ es:
 
   datetime:
     distance_in_words:
-      about_x_days:
+      x_days:
         one: "hace 1 dia"
         other: "hace %{count} dias"
 
