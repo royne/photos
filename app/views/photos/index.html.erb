@@ -15,6 +15,7 @@
         <img class="card-img-top" src="https://images.pexels.com/photos/1018350/pexels-photo-1018350.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Card image cap">
         <div class="card-body">
           <p class="card-text"><%= photo.title %></p>
+          <p>Ficha: <b><%= photo.course.name %></b></p>
           <p class="font-italic text-secondary">Publicado por <%= photo.user.email %>, <%= time_ago_in_words(photo.created_at) %></p>
         </div>
       </div>
