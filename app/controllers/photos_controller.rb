@@ -17,8 +17,25 @@ class PhotosController < ApplicationController
     end
   end
 
+  def show
+    @photo = Photo.find(params[:id])
+  end
+
+  def edit
+    @photo = Photo.find(params[:id])
+  end
+
+  def update
+    @photo = Photo.find(params[:id])
+    if @photo.update(photos_params)
+      redirect_to photos_path, notice: "La evidencia se ha modificado con exito"
+    else
+      render :edit
+    end
+end
+
   private
     def photos_params
-      params.require(:photo).permit(:title, :course_id )
+      params.require(:photo).permit(:title, :image, :course_id)
     end
 end
