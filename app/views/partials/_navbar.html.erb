@@ -5,6 +5,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Instructores
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% User.all.each do |user| %>
+            <%= link_to user.name, user.name, class:"dropdown-item" %>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto"></ul>
       <ul class="navbar-nav">
