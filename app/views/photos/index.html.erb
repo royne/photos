@@ -16,7 +16,7 @@
         <div class="card-body">
           <p class="card-text"><%= photo.title %></p>
           <p>Ficha: <b><%= photo.course.name %></b></p>
-          <p class="font-italic text-secondary">Publicado por <%= photo.user.email %>, <%= time_ago_in_words(photo.created_at) %></p>
+          <p class="font-italic text-secondary">Publicado por <b><%= link_to photo.user.name, photo.user.name %></b>, <%= time_ago_in_words(photo.created_at) %></p>
         </div>
       </div>
     <% end %>
