@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  resources :photos
+
+  get 'profiles/show'
+  get '/:id', to: 'profiles#show'
+
   get 'courses/index'
 
   root 'photos#index'
 
-  resources :photos
 
   devise_for :users
 end
