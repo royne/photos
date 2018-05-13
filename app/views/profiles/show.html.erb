@@ -6,14 +6,15 @@
     </div>
   </div>
   <div class="row justify-content-around">
-      <% @user.photos.each do |photo| %>
-      <div class="card" style="width: 25rem;">
+    <% @user.photos.each do |photo| %>
+      <div class="card card-shadow card-margin" style="width: 25rem;">
         <%= image_tag photo.image.url(:medium), class:"card-img-top" %>
         <div class="card-body">
           <p class="card-text"><%= photo.title %></p>
           <p>Ficha: <b><%= photo.course.name %></b>,  <%= time_ago_in_words(photo.created_at) %></p>
         </div>
+        <br>
       </div>
-      <% end %>
+    <% end %>
   </div>
 </div>
