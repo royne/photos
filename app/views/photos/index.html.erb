@@ -1,14 +1,22 @@
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-sm-10">
+  <div class="row justify-content-around">
+    <div class="col-sm-8">
       <h1>Evidencias Fotograficas POLI-SENA 2018</h1>
     </div>
-    <% if signed_in? %>
-      <div class="col-sm-2">
-        <%= link_to "Nueva Foto", new_photo_path, class: "btn btn-primary" %>
+    <div class="col-sm-2">
+      <%= form_tag photos_path, method: :get do %>
+      <div class="form-group">
+        <%= select_tag :user_id, options_from_collection_for_select(User.all, "id", "name", params[:user_id]), prompt: "Instructor", class: "form-control form-control-sm" %>
       </div>
-    <% end %>
+      <div class="form-group">
+        <%= select_tag :course_id, options_from_collection_for_select(Course.all, "id", "name", params[:course_id]), prompt: "Ficha", class: "form-control form-control-sm" %>
+      </div>
+      <%= submit_tag "Buscar", name: nil, class: "btn btn-dark btn-sm btn-block" %>
+      <% end %>
+    </div>
   </div>
+
+
   <div class="row justify-content-around">
     <% @photos.each do |photo| %>
       <div class="card" style="width: 15rem;">

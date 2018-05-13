@@ -1,6 +1,14 @@
 class PhotosController < ApplicationController
   def index
     @photos = Photo.all
+
+    if params[:user_id].present?
+      @photos = @photos.where("user_id = ?", params[:user_id])
+    end
+
+    if params[:course_id].present?
+      @photos = @photos.where("course_id = ?", params[:course_id])
+    end
   end
 
   def new

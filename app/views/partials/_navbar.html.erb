@@ -5,21 +5,26 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Instructores
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <% User.all.each do |user| %>
-            <%= link_to user.name, user.name, class:"dropdown-item" %>
-          <% end %>
-        </div>
-      </li>
-    </ul>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto"></ul>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Instructores
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% User.all.each do |user| %>
+              <%= link_to user.name, user.name, class:"dropdown-item" %>
+            <% end %>
+          </div>
+        </li>
+        <li class="nav-item">
+          <% if signed_in? %>
+            <div class="col-sm-2">
+              <%= link_to "Nueva Foto", new_photo_path, class: "btn btn-outline-danger " %>
+            </div>
+          <% end %>
+        </li>
+      </ul>
       <ul class="navbar-nav">
         <% if signed_in? %>
           <li class="nav-item ">
