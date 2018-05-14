@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   def index
-    @photos = Photo.all
+    @photos = Photo.all.order(created_at: :desc)
 
     if params[:user_id].present?
       @photos = @photos.where("user_id = ?", params[:user_id])
@@ -31,6 +31,10 @@ class PhotosController < ApplicationController
 
   def edit
     @photo = Photo.find(params[:id])
+    
+    unless signed_in? && @photo.user == current_user
+      redirect_to root_path
+    end
   end
 
   def update

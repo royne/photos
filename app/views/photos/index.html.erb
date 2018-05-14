@@ -25,6 +25,12 @@
           <p class="card-text"><%= photo.title %></p>
           <p>Ficha: <b><%= photo.course.name %></b></p>
           <p class="font-italic text-secondary">Publicado por <b><%= link_to photo.user.name, photo.user.name %></b>, <%= time_ago_in_words(photo.created_at) %></p>
+          <% if signed_in? && photo.user == current_user %>
+            <div class="text-right">
+              <%= link_to 'Editar <i class="material-icons">create</i>'.html_safe, edit_photo_path(photo) %>
+              <%= link_to 'Eliminar <i class="material-icons">delete_sweep</i>'.html_safe, photo, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta evidencia?" } %>
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>
