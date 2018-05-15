@@ -6,6 +6,7 @@ es:
       invalid: "es invalido"
       confirmation: "no son los mismos"
       too_short: "es muy corto"
+      in_between: "no puede ser mayor a %{count}"
 
   activerecord:
     attributes:
@@ -14,12 +15,9 @@ es:
         user_name: "User Name"
         password: "Contraseña"
 
-      post:
+      photo:
         title: "Titulo"
-        body: "Cuerpo del post"
-
-      comments:
-        body: "Comentario"
+        image: "la foto"
 
   datetime:
     distance_in_words:

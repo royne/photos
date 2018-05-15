@@ -21,6 +21,7 @@ class PhotosController < ApplicationController
     if @photo.save
       redirect_to root_path, notice: "La Evidencia fue creada con exito"
     else
+      flash[:alert] = @photo.errors.full_messages
       render :new
     end
   end
@@ -31,7 +32,7 @@ class PhotosController < ApplicationController
 
   def edit
     @photo = Photo.find(params[:id])
-    
+
     unless signed_in? && @photo.user == current_user
       redirect_to root_path
     end

@@ -9,7 +9,12 @@
         </div>
 
         <div class="form-group">
+          <%= f.label "la foto no puede ser mayor a 1MB." %>
           <%= f.file_field :image %>
+        </div>
+
+        <div class="form-group">
+          <%= link_to "si supero este tamaño redimencionala aqui", "http://webresizer.com/resizer/", target:"_blank", class:"font-italic" %>
         </div>
 
         <div class="form-group">
