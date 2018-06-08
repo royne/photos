@@ -5,5 +5,5 @@ class Photo < ApplicationRecord
 
   validates :title, :image, presence:true
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
-  validates_attachment_size :image, :in =>  0..1.megabytes 
+  # validates_attachment_size :image, :in =>  0..1.megabytes 
 end
