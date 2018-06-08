@@ -1,1 +1,14 @@
-<%= image_tag @photo.image.url(:medium) %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-10">
+      <h1>Evidencia</h1>
+      <div class="card card-shadow card-margin" style="width: 35rem;">
+        <%= image_tag @photo.image.url(:medium), class:"card-img-top" %>
+        <div class="card-body">
+          <p class="card-text"><%= @photo.title %></p>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>

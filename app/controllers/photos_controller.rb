@@ -45,7 +45,13 @@ class PhotosController < ApplicationController
     else
       render :edit
     end
-end
+  end
+
+  def destroy
+    photo = Photo.find(params[:id])
+    photo.destroy
+    redirect_to photos_path, notice: "la evidencia se ha eliminado"
+  end
 
   private
     def photos_params
