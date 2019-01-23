@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   def index
-    @photos = Photo.all.order(created_at: :desc)
+    @photos = Photo.includes(:user, :course).all.order(created_at: :desc)
 
     if params[:user_id].present?
       @photos = @photos.where("user_id = ?", params[:user_id])

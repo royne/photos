@@ -1,11 +1,131 @@
-<div class="container-fluid">
-  <h1>reportes</h1>
-  <div class="">
-    <% @photos.each do |p| %>
-      <ul class="report_pdf__card">
-        <li><%= p.title %></li>
-        <li><%= wicked_pdf_image_tag p.image.url(:medium) %></li>
-      </ul>
-    <% end %>
-  </div>
+<div class="container">
+  <h1>reporte</h1>
+  <% @users_esp.each do |user| %>
+    <% @users_trans.each do |trans| %>
+      <% user.photos.each do |photo| %>
+        <% trans.photos.each do |photo_trans| %>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>
+                  Programa: <%= photo.course.name_course %><br>
+                  Ficha: <%= photo.course.name %><br>
+                  Titulo: <%= photo.title %>
+                </td>
+                <td>
+                  Programa: <%= photo_trans.course.name_course %><br>
+                  Ficha: <%= photo_trans.course.name %><br>
+                  Titulo: <%= photo_trans.title %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <%= wicked_pdf_image_tag photo.image.url(:medium), class:"cel_img" %>
+                </td>
+                <td>
+                  <%= wicked_pdf_image_tag photo_trans.image.url(:medium), class:"cel_img" %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Componente: <%= user.componet %><br>
+                  Instructor: <%= user.name %><br>
+                  Fecha: <%= photo.created_at %>
+                </td>
+                <td>
+                  Componente: <%= trans.componet %><br>
+                  Instructor: <%= trans.name %><br>
+                  Fecha: <%= photo_trans.created_at %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br><br><br>
+        <%end%>
+      <%end%>
+    <%end%>
+  <%end%>
 </div>
+
+<!-- <div class="container">
+  <h1>reporte</h1>
+  <div class="row justify-content-around">
+    <% @users_esp.each do |user| %>
+      <% user.photos.each do |photo| %>
+        <div class="card card_pdf" style="margin-bottom:20px">
+          <div class="card-body">
+            <p class="card-title">Programa: <%= photo.course.name_course %></p>
+            <p>Ficha: <%= photo.course.name %></p>
+            <%= wicked_pdf_image_tag photo.image.url(:medium), class:"card-img-top cel_img" %>
+            <p class="card-text"><small class="text-muted">Componente: <%= user.componet %></small></p>
+            <p class="card-text"><small class="text-muted"> Instructor: <%= user.name %></small></p>
+            <p class="card-text"><small class="text-muted">Fecha: <%= photo.created_at %></small></p>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
+  </div>
+</div> -->
+
+<!-- <div class="container-fluid">
+  <h1>reportes</h1>
+  <div class="row justify-content-around">
+    <div class="col-sm-4 col-md-4">
+      <% @users_esp.each do |user| %>
+        <% user.photos.each do |photo| %>
+          <table class="table table_pdf">
+            <thead>
+              <tr>
+                <th>
+                  Programa: <%= photo.course.name_course %><br>
+                  Ficha: <%= photo.course.name %>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= wicked_pdf_image_tag photo.image.url(:medium), class:"cel_img" %></td>
+              </tr>
+              <tr>
+                <td>
+                  Componente: <%= user.componet %><br>
+                  Instructor: <%= user.name %><br>
+                  Fecha: <%= photo.created_at %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="col-sm-4 col-md-4">
+      <% @users_trans.each do |trans| %>
+        <% trans.photos.each do |photo| %>
+          <table class="table table_pdf">
+            <thead>
+              <tr>
+                <th>
+                  Programa: <%= photo.course.name_course %><br>
+                  Ficha: <%= photo.course.name %>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= wicked_pdf_image_tag photo.image.url(:medium), class:"cel_img" %></td>
+              </tr>
+              <tr>
+                <td>
+                  Componente: <%= trans.componet %><br>
+                  Instructor: <%= trans.name %><br>
+                  Fecha: <%= photo.created_at %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div> -->

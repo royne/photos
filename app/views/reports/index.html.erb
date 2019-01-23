@@ -1,10 +1,88 @@
-<div class="container-fluid">
-  <h1>reportes</h1>
-  <div class="">
-    <ul>
-      <% @photos.each do |p| %>
-        <li><%= p.title %></li>
-      <% end %>
-    </ul>
+<div class="container">
+  <h1>reporte</h1>
+  <div class="row justify-content-around">
+    <% @users_esp.each do |user| %>
+      <% user.photos.each do |photo| %>
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-body">
+            <p class="card-title">Programa: <%= photo.course.name_course %></p>
+            <p>Ficha: <%= photo.course.name %></p>
+            <%= image_tag photo.image.url(:medium), class:"card-img-top cel_img" %>
+            <p class="card-text"><small class="text-muted">Componente: <%= user.componet %></small></p>
+            <p class="card-text"><small class="text-muted"> Instructor: <%= user.name %></small></p>
+            <p class="card-text"><small class="text-muted">Fecha: <%= photo.created_at %></small></p>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
   </div>
 </div>
+
+
+<!-- <div class="container-fluid">
+  <h1>reportes</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              <% @users_esp.each do |user| %>
+                <% user.photos.each do |photo| %>
+                    Programa: <%= photo.course.name_course %><br>
+                    Ficha: <%= photo.course.name %>
+                <%end%>
+              <%end%>
+            </th>
+            <th>
+              <% @users_trans.each do |user| %>
+                <% user.photos.each do |photo| %>
+                    Programa: <%= photo.course.name_course %><br>
+                    Ficha: <%= photo.course.name %>
+                <%end%>
+              <%end%>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <% @users_esp.each do |user| %>
+                <% user.photos.each do |photo| %>
+                  <%= image_tag photo.image.url(:medium), class:"cel_img" %>
+                <%end%>
+              <%end%>
+            </td>
+            <td>
+              <% @users_trans.each do |user| %>
+                <% user.photos.each do |photo| %>
+                  <%= image_tag photo.image.url(:medium), class:"cel_img" %>
+                <%end%>
+              <%end%>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <% @users_esp.each do |user| %>
+                <% user.photos.each do |photo| %>
+                  Componente: <%= user.componet %><br>
+                  Instructor: <%= user.name %><br>
+                  Fecha: <%= photo.created_at %>
+                <%end%>
+              <%end%>
+            </td>
+            <td>
+              <% @users_trans.each do |user| %>
+                <% user.photos.each do |photo| %>
+                  Componente: <%= user.componet %><br>
+                  Instructor: <%= user.name %><br>
+                  Fecha: <%= photo.created_at %>
+                <%end%>
+              <%end%>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->
