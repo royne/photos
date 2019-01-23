@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container-fluid profiles">
   <div class="row justify-content-start">
-    <div class="col-sm-10">
+    <div class="col-sm-10 profiles__header">
       <h1><%= @user.name %></h1>
       <h2><%= @user.email %></h2>
     </div>
@@ -8,10 +8,16 @@
   <div class="row justify-content-around">
     <% @user.photos.each do |photo| %>
       <div class="card card-shadow card-margin" style="width: 25rem;">
-        <%= image_tag photo.image.url(:medium), class:"card-img-top" %>
+        <%= image_tag photo.image.url(:medium), class:"card-img-top profiles__card--img" %>
         <div class="card-body">
           <p class="card-text"><%= photo.title %></p>
           <p>Ficha: <b><%= photo.course.name %></b>,  <%= time_ago_in_words(photo.created_at) %></p>
+          <% if signed_in? && photo.user == current_user %>
+            <div class="text-left">
+              <%= link_to 'Editar <i class="material-icons">create</i>'.html_safe, edit_photo_path(photo) %>
+              <%= link_to 'Eliminar <i class="material-icons">delete_sweep</i>'.html_safe, photo, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta evidencia?" } %>
+            </div>
+          <% end %>
         </div>
         <br>
       </div>

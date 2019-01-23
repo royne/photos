@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row justify-content-around start">
-    <div class="col-sm-6 col-md-8">
+    <div class="col-sm-7 col-md-9">
       <h1>Evidencias Fotograficas POLI-SENA 2018</h1>
     </div>
     <div class="col-sm-4 col-md-2">
@@ -20,7 +20,7 @@
   <div class="row justify-content-around">
     <% @photos.each do |photo| %>
       <div class="card card-shadow card-margin" style="width: 15rem;">
-        <%= image_tag photo.image.url(:medium), class:"card-img-top" %>
+        <%= image_tag photo.image.url(:medium), class:"card-img-top img_size_index" %>
         <div class="card-body">
           <p class="card-text"><%= photo.title %></p>
           <p>Ficha: <b><%= photo.course.name %></b></p>

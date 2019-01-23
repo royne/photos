@@ -1,3 +1,13 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.profiles{
+  .profiles__header{
+    margin-left: 1%;
+    margin-bottom: 20px;
+  }
+  .profiles__card--img{
+    max-height: 220px;
+    min-height: 210px;
+  }
+}

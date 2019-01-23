@@ -7,6 +7,9 @@ es:
       confirmation: "no son los mismos"
       too_short: "es muy corto"
       in_between: "no puede ser mayor a %{count}"
+      restrict_dependent_destroy:
+          has_one: No se puede eliminar el registro porque existe un %{record} dependiente
+          has_many: No se puede eliminar el registro porque existen %{record} dependientes
 
   activerecord:
     attributes:
@@ -21,17 +24,44 @@ es:
 
   datetime:
     distance_in_words:
-      x_days:
-        one: "hace 1 dia"
-        other: "hace %{count} dias"
-
       about_x_hours:
-        one: "hace 1 hora"
-        other: "hace %{count} horas"
-
-      x_minutes:
-        one: "hace 1 minuto"
-        other: "hace %{count} minutos"
-
+        one: hace cerca de 1 hora
+        other: hace cerca de %{count} horas
+      about_x_months:
+        one: hace cerca de 1 mes
+        other: hace cerca de %{count} meses
+      about_x_years:
+        one: hace cerca de 1 año
+        other: hace cerca de %{count} años
+      almost_x_years:
+        one: hace casi 1 año
+        other: hace casi %{count} años
+      half_a_minute: hace medio minuto
       less_than_x_minutes:
-        one: "hace menos de 1 minuto"
+        one: hace menos de 1 minuto
+        other: hace menos de %{count} minutos
+      less_than_x_seconds:
+        one: hace menos de 1 segundo
+        other: hace menos de %{count} segundos
+      over_x_years:
+        one: hace más de 1 año
+        other: hace más de %{count} años
+      x_days:
+        one: hace 1 día
+        other: "hace %{count} días"
+      x_minutes:
+        one: hace 1 minuto
+        other: "hace %{count} minutos"
+      x_months:
+        one: hace 1 mes
+        other: "hace %{count} meses"
+      x_seconds:
+        one: hace 1 segundo
+        other: "hace %{count} segundos"
+    prompts:
+      day: Día
+      hour: Hora
+      minute: Minuto
+      month: Mes
+      second: Segundos
+      year: Año
