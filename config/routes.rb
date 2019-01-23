@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/:id', to: 'profiles#show'
 
   get 'courses/index'
+  get 'reports/index'
 
   root 'photos#index'
 

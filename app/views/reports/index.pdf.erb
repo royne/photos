@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <h1>reportes</h1>
+  <div class="">
+    <% @photos.each do |p| %>
+      <ul class="report_pdf__card">
+        <li><%= p.title %></li>
+        <li><%= wicked_pdf_image_tag p.image.url(:medium) %></li>
+      </ul>
+    <% end %>
+  </div>
+</div>

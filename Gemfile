@@ -35,10 +35,18 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#debug
+gem 'pry' # call binding.pry anywhere in the code to stop the execution and have access to the irb in the server terminal.
+gem 'pry-nav'
+
 gem 'devise'
 
 gem 'paperclip', '~> 5.2.1'
 gem 'aws-sdk', '~> 2.3'
+
+# pdf generator
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   gem 'sqlite3'
